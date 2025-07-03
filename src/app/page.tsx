@@ -4,7 +4,6 @@ import Hero from "@/custom_components/hero";
 import Projects from "@/custom_components/projects";
 import About from "@/custom_components/about";
 import Contact from "@/custom_components/contact";
-import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 import Header from "@/custom_components/header";
 import { IconCloud } from "@/components/magicui/icon-cloud";
 
@@ -19,7 +18,7 @@ const slugs = [
   "codeigniter",
   "bootstrap",
   "tailwindcss",
-  "shadcnui",      
+  "shadcnui",
   "cpanel",
   "css3",
   "html5",
@@ -27,7 +26,6 @@ const slugs = [
   "typescript",
   "figma",
 ];
-
 
 export default function Home() {
   const images = slugs.map(
@@ -37,12 +35,14 @@ export default function Home() {
   return (
     <Layout>
       <div className="relative">
-        <FlickeringGrid className="absolute inset-0 -z-10 opacity-20 blur-sm" />
+        {/* Full black background */}
+        <div className="absolute inset-0 -z-10 bg-black"></div>
+
         <Header />
         <Hero />
 
         <section className="py-20">
-          <h2 className="text-2xl font-bold text-center mb-6">Tech I Use</h2>
+          <h2 className="text-2xl font-bold text-center mb-6 text-white">Tech I Use</h2>
           <div className="relative overflow-hidden">
             <IconCloud images={images} />
           </div>
