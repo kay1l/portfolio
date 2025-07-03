@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header className="flex justify-between items-center py-4 px-6 max-w-7xl mx-auto rounded-xl shadow-md bg-black/80 backdrop-blur">
-      <a href="/" className="text-2xl font-extrabold tracking-tight text-indigo-400">
+      <a href="/" className="text-md font-extrabold tracking-tight text-indigo-400">
         <TypingAnimation>Kyle.dev</TypingAnimation>
       </a>
 
