@@ -6,33 +6,31 @@ import About from "@/custom_components/about";
 import Contact from "@/custom_components/contact";
 import Header from "@/custom_components/header";
 import TechStack from "@/custom_components/tech_stack";
-import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
-import { cn } from "@/lib/utils";
+import Footer from "@/custom_components/footer";
+import { ScrollProgress } from "@/components/magicui/scroll-progress";
+import { Meteors } from "@/components/magicui/meteors";
 export default function Home() {
   return (
     <Layout>
       <div className="relative min-h-screen">
+      <ScrollProgress className="fixed top-0 left-0 right-0 h-1 bg-indigo-500 z-[60]" />
         {/* Full black background */}
         <div className="absolute inset-0 -z-20 bg-black"></div>
-
-        {/* Interactive grid overlay
-        <InteractiveGridPattern
-        className={cn(
-          "[mask-image:radial-gradient(400px_circle_at_center,white,transparent)]",
-        )}
-        width={20}
-        height={20}
-        squares={[80, 80]}
-        squaresClassName="hover:fill-blue-500"
-      />
- */}
-
+        <Meteors
+          number={100}
+          className="fixed inset-0 -z-10 pointer-events-none"
+        />
+        <Meteors
+          number={100}
+          className="absolute inset-0 -z-10"
+        />
         <Header />
         <Hero />
         <TechStack />
         <Projects />
         <About />
         <Contact />
+        <Footer />
       </div>
     </Layout>
   );
