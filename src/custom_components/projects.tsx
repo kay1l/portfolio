@@ -21,6 +21,30 @@ const projects = [
     image: "/images/marketplace.png",
   },
   {
+    title: "Massage Therapy Page",
+    description:
+      "A massage therapy and booking platform built with Next.js, Tailwind CSS. Features include appointment scheduling, user authentication, and a clean, modern interface.",
+    link: "https://github.com/kay1l/massage-landing-page",
+    site: "https://massage-landing-page.vercel.app/",
+    image: "/images/massage.png",
+  },
+  {
+    title: "Record Management System",
+    description:
+      "A Laravel-based system for PIT's Extension Services Office to manage and track extension activities. Features include dynamic updates, reporting, and improved efficiency by reducing manual processes and enhancing data accuracy.",
+    link: "https://github.com/kay1l/recordms",
+    site: "#",
+    image: "/images/record.png",
+  },  
+  {
+    title: "Photographer Live App",
+    description:
+      "A Laravel-based live photo sharing app for photographers. Supports real-time album creation via QR code, instant photo uploads, email delivery, secure access, and ZIP downloads—optimized for events and mobile viewing.",
+    link: "https://github.com/kay1l/photographer-app",
+    site: "https://webapp-photo-capture-g6hd.onrender.com/photographer/remote/1",
+    image: "/images/photo.png",
+  },
+  {
     title: "Coming Soon",
     comingSoon: true,
   },

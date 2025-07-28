@@ -25,10 +25,10 @@ export default function Header() {
     >
       {/* Left: Logo */}
       <div className="flex items-center justify-start">
-        <a href="/" className="text-xs font-extrabold tracking-tight text-indigo-400">
-          <TypingAnimation>Kyle.dev</TypingAnimation>
-        </a>
-      </div>
+  <a href="/" className="text-xs font-semibold tracking-tight text-indigo-400">
+    <img src="/images/Letters.jpeg" alt="Kyle.dev logo" className="h-15" />
+  </a>
+</div>
 
       {/* Right: nav + controls */}
       <div className="flex items-center justify-end gap-10 space-x-2">
