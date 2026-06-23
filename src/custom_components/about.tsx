@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 export default function About() {
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 scroll-mt-24">
       <motion.h2
-        className="text-3xl font-bold mb-6 text-center text-white"
+        className="text-3xl font-bold mb-6 text-center text-foreground"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -16,37 +16,33 @@ export default function About() {
       </motion.h2>
 
       <motion.p
-        className="max-w-2xl mx-auto text-center text-gray-400 leading-relaxed"
+        className="max-w-2xl mx-auto text-center text-muted-foreground leading-relaxed"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        I’m a <span className="text-indigo-400 font-medium">web developer</span> passionate about creating modern, 
-        user-friendly, and high-performance web applications. From crafting elegant UIs with 
-        <span className="text-indigo-400 font-medium"> React</span> & <span className="text-indigo-400 font-medium">Next.js</span> to building robust backends with 
-        <span className="text-indigo-400 font-medium"> Laravel</span> & <span className="text-indigo-400 font-medium">Supabase</span>, I love turning ideas into reality.
+        I’m a <span className="text-primary font-medium">web developer</span> passionate about creating modern,
+        user-friendly, and high-performance web applications. From crafting elegant UIs with
+        <span className="text-primary font-medium"> React</span> & <span className="text-primary font-medium">Next.js</span> to building robust backends with
+        <span className="text-primary font-medium"> Laravel</span> & <span className="text-primary font-medium">Supabase</span>, I love turning ideas into reality.
       </motion.p>
 
       <motion.div
-        className="mt-6 flex justify-center gap-4 flex-wrap"
+        className="mt-6 flex justify-center gap-3 flex-wrap"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ delay: 0.4, duration: 0.6 }}
       >
-        <span className="inline-block bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full">
-          Frontend
-        </span>
-        <span className="inline-block bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full">
-          Backend
-        </span>
-        <span className="inline-block bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full">
-          Full-stack
-        </span>
-        <span className="inline-block bg-gray-800 text-gray-300 text-xs px-3 py-1 rounded-full">
-          UI/UX
-        </span>
+        {["Frontend", "Backend", "Full-stack", "UI/UX"].map((tag) => (
+          <span
+            key={tag}
+            className="inline-block rounded-full border border-border bg-card text-muted-foreground text-xs px-3 py-1"
+          >
+            {tag}
+          </span>
+        ))}
       </motion.div>
     </section>
   );

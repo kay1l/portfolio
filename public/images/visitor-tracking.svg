@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-label="Computer-vision visitor tracking preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e1b4b" />
+      <stop offset="0.55" stop-color="#111827" />
+      <stop offset="1" stop-color="#0b1220" />
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6366f1" stop-opacity="0.35" />
+      <stop offset="1" stop-color="#6366f1" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="360" fill="url(#bg)" />
+
+  <!-- faint perspective grid -->
+  <g stroke="#3b82f6" stroke-opacity="0.10" stroke-width="1">
+    <line x1="0" y1="250" x2="640" y2="250" />
+    <line x1="0" y1="300" x2="640" y2="300" />
+    <line x1="120" y1="220" x2="40" y2="360" />
+    <line x1="300" y1="220" x2="300" y2="360" />
+    <line x1="480" y1="220" x2="600" y2="360" />
+  </g>
+
+  <rect width="640" height="160" fill="url(#glow)" />
+
+  <!-- person 1: Employee (emerald box) -->
+  <g>
+    <g fill="#475569">
+      <circle cx="200" cy="150" r="22" />
+      <path d="M168 250c0-26 14-46 32-46s32 20 32 46v40h-64z" />
+    </g>
+    <rect x="158" y="120" width="84" height="180" rx="10" fill="none" stroke="#34d399" stroke-width="3" />
+    <rect x="158" y="104" width="96" height="20" rx="6" fill="#34d399" />
+    <text x="166" y="119" font-family="monospace" font-size="13" font-weight="700" fill="#06281d">Employee</text>
+  </g>
+
+  <!-- person 2: Visitor (indigo box) -->
+  <g>
+    <g fill="#64748b">
+      <circle cx="420" cy="170" r="26" />
+      <path d="M384 290c0-30 16-52 36-52s36 22 36 52v34h-72z" />
+    </g>
+    <rect x="372" y="136" width="96" height="190" rx="10" fill="none" stroke="#818cf8" stroke-width="3" />
+    <rect x="372" y="118" width="84" height="20" rx="6" fill="#818cf8" />
+    <text x="380" y="133" font-family="monospace" font-size="13" font-weight="700" fill="#10122e">Visitor</text>
+  </g>
+
+  <!-- HUD corner brackets -->
+  <g stroke="#818cf8" stroke-width="3" fill="none" stroke-linecap="round" stroke-opacity="0.8">
+    <path d="M24 40v-16h16" />
+    <path d="M616 40v-16h-16" />
+    <path d="M24 320v16h16" />
+    <path d="M616 320v16h-16" />
+  </g>
+
+  <!-- REC indicator -->
+  <g>
+    <circle cx="40" cy="62" r="6" fill="#f43f5e" />
+    <text x="54" y="67" font-family="monospace" font-size="14" font-weight="700" fill="#e2e8f0">REC</text>
+  </g>
+
+  <!-- scan line -->
+  <line x1="0" y1="200" x2="640" y2="200" stroke="#a5b4fc" stroke-width="2" stroke-opacity="0.5" stroke-dasharray="6 8" />
+</svg>
