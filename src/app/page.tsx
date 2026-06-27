@@ -6,11 +6,13 @@ import About from "@/custom_components/about";
 import Contact from "@/custom_components/contact";
 import Header from "@/custom_components/header";
 import Footer from "@/custom_components/footer";
+import Preloader from "@/custom_components/preloader";
 import { ScrollProgress } from "@/components/magicui/scroll-progress";
 import { Meteors } from "@/components/magicui/meteors";
 export default function Home() {
   return (
     <Layout>
+      <Preloader />
       <div className="relative min-h-screen bg-background text-foreground">
         <ScrollProgress className="fixed top-0 left-0 right-0 h-1 z-[60]" />
         {/* Themed background */}
