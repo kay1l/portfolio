@@ -18,7 +18,7 @@ export const techStack: Tech[] = [
   { slug: "github", label: "GitHub" },
   { slug: "typescript", label: "TypeScript" },
   { slug: "figma", label: "Figma" },
-  { slug: "vue-dot-js", label: "Vue.js" },
+  { slug: "vuedotjs", label: "Vue.js" },
   { slug: "vuetify", label: "Vuetify" },
   { slug: "opencv", label: "OpenCV" },
   { slug: "axios", label: "Axios" },
