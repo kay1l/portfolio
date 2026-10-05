@@ -110,14 +110,18 @@ function MobileProjectCard({ proj, index }: { proj: Project; index: number }) {
       transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
     >
       {/* Image */}
-      <div className="relative aspect-video w-full overflow-hidden">
+      <div className="relative aspect-video w-full overflow-hidden bg-gradient-to-br from-secondary to-background">
         {proj.image ? (
           <Image
             src={proj.image}
             alt={proj.title}
             fill
             sizes="100vw"
-            className="object-cover"
+            className={
+              proj.image === "/images/logo.svg"
+                ? "object-contain p-5 sm:p-6"
+                : "object-cover"
+            }
           />
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-500/20 to-violet-600/20">
@@ -207,7 +211,7 @@ function ProjectTile({
           sizes={featured ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 640px) 100vw, 33vw"}
           className={
             proj.image === "/images/logo.svg"
-              ? "object-contain p-6 opacity-90 transition duration-700 ease-out group-hover:scale-[1.04]"
+              ? "object-contain p-5 opacity-90 transition duration-700 ease-out group-hover:scale-[1.02] sm:p-6"
               : "object-cover transition duration-700 ease-out group-hover:scale-105"
           }
         />
