@@ -38,7 +38,7 @@ export default function Home() {
             <div className="grid gap-3 md:grid-cols-3">
               {[
                 { value: "4+", label: "Years building web apps" },
-                { value: "4", label: "Core stacks used" },
+                { value: "5+", label: "Core stacks used" },
                 { value: "100%", label: "Focus on quality" },
               ].map((stat) => (
                 <div

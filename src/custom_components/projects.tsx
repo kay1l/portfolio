@@ -23,20 +23,11 @@ const projects: Project[] = [
     tags: ["Python", "YOLOv8", "ByteTrack", "OpenCV", "FastAPI", "PyTorch", "Docker"],
   },
   {
-    title: "Tic-Tac-Toe",
+    title: "Melting Price",
     description:
-      "A classic Tic-Tac-Toe game built with React and Next.js. Features clean UI, responsive design, and interactive gameplay.",
-    link: "https://github.com/kay1l/tic-tac-toe",
-    site: "https://tic-tac-toe-jet-one.vercel.app/",
-    image: "/images/tic-tac-toe.jpg",
-  },
-  {
-    title: "Marketplace Clone",
-    description:
-      "A functional marketplace clone created using Next.js, Tailwind CSS, and Supabase. Includes user authentication, listings, and a modern interface.",
-    link: "https://github.com/kay1l/marketplace",
-    site: "https://marketplace-six-inky.vercel.app/",
-    image: "/images/marketplace.jpg",
+      "A dynamic e-commerce platform built with Laravel and Vue/Vuetify, featuring a time-based “melting price” system where product prices automatically decrease until purchase. Includes automated pricing and sale workflows, quantity and inventory management, country-based configurations, scheduled background jobs, purchase/event tracking, notifications, and interactive price-history visualization.",
+    site: "https://stagingmeltingprice.cloud/",
+    image: "/images/logo.svg",
   },
   {
     title: "Shaisha Leisure Hub",
@@ -54,19 +45,28 @@ const projects: Project[] = [
     image: "/images/record.png",
   },
   {
-    title: "Melting Price",
-    description:
-      "A dynamic e-commerce platform built with Laravel and Vue/Vuetify, featuring a time-based “melting price” system where product prices automatically decrease until purchase. Includes automated pricing and sale workflows, quantity and inventory management, country-based configurations, scheduled background jobs, purchase/event tracking, notifications, and interactive price-history visualization.",
-    site: "https://stagingmeltingprice.cloud/",
-    image: "/images/logo.svg",
-  },
-  {
     title: "Photographer Live App",
     description:
       "A Laravel-based live photo sharing app for photographers. Supports real-time album creation via QR code, instant uploads, email delivery, secure access, and ZIP downloads.",
     link: "https://github.com/kay1l/photographer-app",
     site: "https://webapp-photo-capture-g6hd.onrender.com/photographer/remote/1",
     image: "/images/photo.jpg",
+  },
+  {
+    title: "Marketplace Clone",
+    description:
+      "A functional marketplace clone created using Next.js, Tailwind CSS, and Supabase. Includes user authentication, listings, and a modern interface.",
+    link: "https://github.com/kay1l/marketplace",
+    site: "https://marketplace-six-inky.vercel.app/",
+    image: "/images/marketplace.jpg",
+  },
+  {
+    title: "Tic-Tac-Toe",
+    description:
+      "A classic Tic-Tac-Toe game built with React and Next.js. Features clean UI, responsive design, and interactive gameplay.",
+    link: "https://github.com/kay1l/tic-tac-toe",
+    site: "https://tic-tac-toe-jet-one.vercel.app/",
+    image: "/images/tic-tac-toe.jpg",
   },
 ];
 

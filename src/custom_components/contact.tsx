@@ -8,7 +8,7 @@ import { Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 // gomezkyle3102@gmail.com). Set NEXT_PUBLIC_WEB3FORMS_KEY in .env.local, or
 // replace the fallback string below.
 const ACCESS_KEY =
-  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "YOUR_WEB3FORMS_ACCESS_KEY";
+  process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "0c1dce8a-342c-4070-b979-c56802b9d205";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -22,8 +22,8 @@ export default function Contact() {
 
     const formData = new FormData(form);
     formData.append("access_key", ACCESS_KEY);
-    formData.append("subject", "New message from your portfolio");
-    formData.append("from_name", "Portfolio Contact Form");
+    formData.append("subject", `New message from ${formData.get("name") as string}`);
+    formData.append("from_name", formData.get("email") as string);
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -34,6 +34,10 @@ export default function Contact() {
       if (data.success) {
         setStatus("success");
         form.reset();
+
+        window.setTimeout(() => {
+          setStatus("idle");
+        }, 3000);
       } else {
         setStatus("error");
       }
@@ -126,7 +130,7 @@ export default function Contact() {
           <button
             type="submit"
             disabled={status === "loading"}
-            className="flex w-full items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground font-medium py-2.5 transition hover:opacity-90 disabled:opacity-60"
+            className=" cursor-pointer flex w-full items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground font-medium py-2.5 transition hover:opacity-90 disabled:opacity-60"
           >
             {status === "loading" ? (
               <>
