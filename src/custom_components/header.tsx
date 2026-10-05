@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "@/lib/use-theme";
@@ -9,16 +9,41 @@ const sections = ["projects", "about", "contact"];
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const isDark = theme === "dark";
+
+  // Add a subtle backdrop + border + shadow once the page is scrolled
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <motion.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="sticky top-0 z-50 w-full border-b border-border bg-background/70 backdrop-blur-lg"
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ease-out ${
+        scrolled
+          ? "border-b border-border bg-background/70 shadow-sm backdrop-blur-lg"
+          : "border-b border-transparent bg-transparent"
+      }`}
     >
-      <div className="relative flex w-full items-center justify-end px-6 py-4 md:px-10">
+      <div
+        className={`relative flex w-full items-center justify-between px-4 transition-all duration-300 ease-out sm:px-6 md:px-10 ${
+          scrolled ? "py-3" : "py-5"
+        }`}
+      >
+      {/* Brand */}
+      <a
+        href="#"
+        className="text-base font-bold tracking-tight text-foreground transition-colors hover:text-primary"
+      >
+        Kyle<span className="text-primary">.dev</span>
+      </a>
+
       {/* Nav + controls */}
       <div className="flex items-center justify-end gap-4 md:gap-8">
         <nav className="hidden md:flex items-center gap-8 font-medium">

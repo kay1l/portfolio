@@ -44,7 +44,7 @@ const projects: Project[] = [
       "A massage therapy and booking platform built with Next.js and Tailwind CSS. Features appointment scheduling, user authentication, and a clean, modern interface.",
     link: "https://github.com/kay1l/massage-landing-page",
     site: "https://massage-landing-page.vercel.app/",
-    image: "/images/massage.jpg",
+    image: "/images/massage-new.png",
   },
   {
     title: "Record Management System",
@@ -52,6 +52,13 @@ const projects: Project[] = [
       "A Laravel-based system for PIT's Extension Services Office to manage and track extension activities, with dynamic updates, reporting, and reduced manual processing.",
     link: "https://github.com/kay1l/recordms",
     image: "/images/record.png",
+  },
+  {
+    title: "Melting Price",
+    description:
+      "A dynamic e-commerce platform built with Laravel and Vue/Vuetify, featuring a time-based “melting price” system where product prices automatically decrease until purchase. Includes automated pricing and sale workflows, quantity and inventory management, country-based configurations, scheduled background jobs, purchase/event tracking, notifications, and interactive price-history visualization.",
+    site: "https://stagingmeltingprice.cloud/",
+    image: "/images/logo.svg",
   },
   {
     title: "Photographer Live App",
@@ -76,12 +83,99 @@ export default function Projects() {
         Projects
       </motion.h2>
 
-      <div className="grid auto-rows-[220px] grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Mobile: readable stacked cards (image on top, content below) */}
+      <div className="flex flex-col gap-5 sm:hidden">
+        {projects.map((proj, i) => (
+          <MobileProjectCard key={proj.title} proj={proj} index={i} />
+        ))}
+      </div>
+
+      {/* Tablet & up: bento overlay grid */}
+      <div className="hidden auto-rows-[220px] gap-4 sm:grid sm:grid-cols-2 lg:grid-cols-3">
         {projects.map((proj, i) => (
           <ProjectTile key={proj.title} proj={proj} index={i} featured={i === 0} />
         ))}
       </div>
     </section>
+  );
+}
+
+function MobileProjectCard({ proj, index }: { proj: Project; index: number }) {
+  return (
+    <motion.div
+      className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, delay: (index % 3) * 0.08 }}
+    >
+      {/* Image */}
+      <div className="relative aspect-video w-full overflow-hidden">
+        {proj.image ? (
+          <Image
+            src={proj.image}
+            alt={proj.title}
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-indigo-500/20 to-violet-600/20">
+            <ScanEye className="h-10 w-10 text-primary/70" strokeWidth={1.5} />
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-5">
+        <h3 className="text-lg font-semibold text-foreground">{proj.title}</h3>
+
+        {proj.description && (
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            {proj.description}
+          </p>
+        )}
+
+        {proj.tags && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {proj.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-md bg-secondary px-2 py-0.5 text-[11px] font-medium text-muted-foreground"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <div className="mt-4 flex flex-wrap gap-2">
+          {proj.link && proj.link !== "#" && (
+            <a
+              href={proj.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/60 px-3 py-1.5 text-xs font-medium text-foreground transition hover:bg-secondary"
+            >
+              <Github className="h-3.5 w-3.5" />
+              GitHub
+            </a>
+          )}
+
+          {proj.site && proj.site !== "#" && (
+            <a
+              href={proj.site}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition hover:opacity-90"
+            >
+              <ExternalLink className="h-3.5 w-3.5" />
+              Live
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.div>
   );
 }
 
@@ -111,7 +205,11 @@ function ProjectTile({
           alt={proj.title}
           fill
           sizes={featured ? "(max-width: 1024px) 100vw, 66vw" : "(max-width: 640px) 100vw, 33vw"}
-          className="object-cover transition duration-700 ease-out group-hover:scale-105"
+          className={
+            proj.image === "/images/logo.svg"
+              ? "object-contain p-6 opacity-90 transition duration-700 ease-out group-hover:scale-[1.04]"
+              : "object-cover transition duration-700 ease-out group-hover:scale-105"
+          }
         />
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-indigo-500/20 to-violet-600/20">

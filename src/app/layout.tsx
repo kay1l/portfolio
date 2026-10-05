@@ -1,11 +1,36 @@
 import type { Metadata } from "next";
-import { Fira_Code } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const firaCode = Fira_Code({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+const firaCode = localFont({
+  src: [
+    {
+      path: "./fonts/FiraCode-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/FiraCode-Medium.woff2",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "./fonts/FiraCode-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-fira-code",
   display: "swap",
+  fallback: [
+    "ui-monospace",
+    "SFMono-Regular",
+    "Menlo",
+    "Monaco",
+    "Consolas",
+    "Liberation Mono",
+    "monospace",
+  ],
 });
 
 const siteUrl = "https://kyle-portfolio.vercel.app";
@@ -52,7 +77,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={firaCode.className} suppressHydrationWarning>
+    <html lang="en" className={firaCode.variable} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -60,7 +85,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }

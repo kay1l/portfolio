@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <Layout>
       <Preloader />
-      <div className="relative min-h-screen bg-background text-foreground">
+      <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
         <ScrollProgress className="fixed top-0 left-0 right-0 h-1 z-[60]" />
         {/* Themed background */}
         <div className="fixed inset-0 -z-20 bg-background" />
@@ -24,7 +24,7 @@ export default function Home() {
           className="fixed inset-0 -z-10 pointer-events-none"
         />
         <Header />
-        <main className="mx-auto max-w-6xl px-6">
+        <main className="mx-auto max-w-6xl px-4 sm:px-6">
           <Hero />
           <Projects />
           <About />

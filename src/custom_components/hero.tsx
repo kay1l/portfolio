@@ -9,8 +9,8 @@ export default function Hero() {
   const images = techIconCloudImages;
 
   return (
-    <section className="py-28 md:py-32 relative z-10">
-      <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-16">
+    <section className="py-16 sm:py-24 md:py-32 relative z-10">
+      <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-10 md:gap-16">
         {/* Left Side: Image centered above content */}
         <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
           {/* Centered image */}
@@ -105,7 +105,7 @@ export default function Hero() {
             My Development Toolkit
           </motion.h2>
 
-          <div className="relative mb-10 flex items-center justify-center min-h-[300px]">
+          <div className="relative mb-10 mx-auto flex w-full max-w-[400px] items-center justify-center min-h-[280px] sm:min-h-[300px]">
             <div className="absolute inset-0 z-0 rounded-full bg-primary/10 blur-3xl"></div>
             <IconCloud images={images} />
           </div>
