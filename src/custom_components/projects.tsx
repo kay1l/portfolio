@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Github, ExternalLink, ScanEye } from "lucide-react";
@@ -101,6 +102,11 @@ export default function Projects() {
 }
 
 function MobileProjectCard({ proj, index }: { proj: Project; index: number }) {
+  const [expanded, setExpanded] = useState(false);
+  const previewText = proj.description
+    ? `${proj.description.slice(0, 120)}${proj.description.length > 120 ? "..." : ""}`
+    : "";
+
   return (
     <motion.div
       className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
@@ -135,9 +141,21 @@ function MobileProjectCard({ proj, index }: { proj: Project; index: number }) {
         <h3 className="text-lg font-semibold text-foreground">{proj.title}</h3>
 
         {proj.description && (
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            {proj.description}
-          </p>
+          <>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              {expanded ? proj.description : previewText}
+            </p>
+
+            {proj.description.length > 120 && (
+              <button
+                type="button"
+                onClick={() => setExpanded((prev) => !prev)}
+                className="mt-2 text-xs font-medium text-primary underline-offset-4 hover:underline"
+              >
+                {expanded ? "Show less" : "Read more"}
+              </button>
+            )}
+          </>
         )}
 
         {proj.tags && (
