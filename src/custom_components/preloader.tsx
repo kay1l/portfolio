@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const LINES = [
@@ -15,10 +15,11 @@ const LINES = [
   "  ✓ welcome — enjoy your stay",
 ];
 
-export default function Preloader() {
+export default function Preloader({ onComplete }: { onComplete?: () => void }) {
   const [visibleLines, setVisibleLines] = useState(0);
   const [progress, setProgress] = useState(0);
   const [done, setDone] = useState(false);
+  const completedRef = useRef(false);
 
   // Reveal terminal lines one by one
   useEffect(() => {
@@ -50,6 +51,13 @@ export default function Preloader() {
       document.body.style.overflow = "";
     };
   }, [done]);
+
+  useEffect(() => {
+    if (done && !completedRef.current) {
+      completedRef.current = true;
+      onComplete?.();
+    }
+  }, [done, onComplete]);
 
   return (
     <AnimatePresence>

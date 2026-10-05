@@ -22,10 +22,10 @@ export default function About() {
         viewport={{ once: true }}
         transition={{ delay: 0.2, duration: 0.6 }}
       >
-        I’m a <span className="text-primary font-medium">web developer</span> passionate about creating modern,
+        I’m a <span className="text-primary font-medium">Full-Stack Developer</span> passionate about creating modern,
         user-friendly, and high-performance web applications. From crafting elegant UIs with
-        <span className="text-primary font-medium"> React</span> & <span className="text-primary font-medium">Next.js</span> to building robust backends with
-        <span className="text-primary font-medium"> Laravel</span> & <span className="text-primary font-medium">Supabase</span>, I love turning ideas into reality.
+        <span className="text-primary font-medium"> React</span>, <span className="text-primary font-medium">Next.js</span> & <span className="text-primary font-medium">Vue.js </span> to building robust backends with
+        <span className="text-primary font-medium"> Laravel</span>, <span className="text-primary font-medium">PHP</span> & <span className="text-primary font-medium">Python</span>. I enjoy combining web development, backend engineering, and AI to solve practical problems and build smarter applications.
       </motion.p>
 
       <motion.div

@@ -39,7 +39,7 @@ const projects: Project[] = [
     image: "/images/marketplace.jpg",
   },
   {
-    title: "Massage Therapy Page",
+    title: "Shaisha Leisure Hub",
     description:
       "A massage therapy and booking platform built with Next.js and Tailwind CSS. Features appointment scheduling, user authentication, and a clean, modern interface.",
     link: "https://github.com/kay1l/massage-landing-page",
